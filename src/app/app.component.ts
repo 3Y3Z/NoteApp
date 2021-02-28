@@ -27,7 +27,6 @@ export class AppComponent {
      
       this.splashScreen.hide();
   
-           this.router.navigateByUrl('/login');
     })
   }
   
