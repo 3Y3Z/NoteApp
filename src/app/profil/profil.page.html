@@ -10,4 +10,6 @@
 <ion-content *ngFor="let user of users">
   <p>{{ user.email }}</p>
   <p>{{ user.pseudo }}</p>
+  <ion-button (click)="selectImage()">pickimage</ion-button>
+  <img src="{{croppedImagePath}}">
 </ion-content>
