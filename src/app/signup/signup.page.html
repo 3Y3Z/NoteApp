@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inscription</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!connected">
+    <!-- À afficher si l'utilisateur n'est pas connecté -->
+    <ion-item>
+      <ion-label><b>Email:</b></ion-label>
+      <ion-input type="email" [(ngModel)]="email" [(ngModel)]="dataNewUser.email" [(ngModel)]="dataUser.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Mot de passe:</b></ion-label>
+      <ion-input type="password"  [(ngModel)]="dataNewUser.password" [(ngModel)]="dataUser.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label><b>Pseudo:</b></ion-label>
+      <ion-input type="text"[(ngModel)]="pseudo" [(ngModel)]="dataNewUser.pseudo"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="tertiary" (click)="signUp()">Inscription</ion-button>
+  </div>
+  
+</ion-content>

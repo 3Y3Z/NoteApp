@@ -1,0 +1,8 @@
+
+<ion-content padding>
+   <ion-grid>
+     <ion-row><ion-col (click)="getData()">Entrez le pseudo de l'utilisateur</ion-col></ion-row>
+     <ion-row><ion-col><ion-input [(ngModel)]="newUserPseudo"></ion-input></ion-col></ion-row>
+     <ion-row><ion-col><ion-button color="success" expand="block" (click)="addUserAndClose()">Ajouter</ion-button></ion-col></ion-row>
+   </ion-grid> 
+ </ion-content>  

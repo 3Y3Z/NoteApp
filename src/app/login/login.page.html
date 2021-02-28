@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Connection</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!connected">
+    <!-- À afficher si l'utilisateur n'est pas connecté -->
+    <ion-item>
+      <ion-label><b>Email:</b></ion-label>
+      <ion-input type="email" [(ngModel)]="dataUser.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><b>Mot de passe:</b></ion-label>
+      <ion-input type="password" [(ngModel)]="dataUser.password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="primary" (click)="login()">Connexion</ion-button>
+    <ion-button expand="block" color="tertiary" (click)="toSignUp()">Inscription</ion-button>
+  </div>
+  
+  <div *ngIf="connected">
+    <!-- Si l'utilisateur est connecté -->
+    
+  </div>
+</ion-content>

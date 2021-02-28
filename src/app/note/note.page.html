@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{data.titre}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="repertoire" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="toProfil()"><ion-icon name="person"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>{{ data.texte }}</p>
+  <p>{{ data.auteur }}</p>
+  <p>{{ data.date }}</p>
+</ion-content>

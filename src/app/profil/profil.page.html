@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mon profil</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let user of users">
+  <p>{{ user.email }}</p>
+  <p>{{ user.pseudo }}</p>
+</ion-content>
