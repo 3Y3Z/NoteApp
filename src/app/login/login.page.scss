@@ -1,0 +1,36 @@
+img{
+    position: absolute;
+    top:0;
+    left: 0;
+transform: rotate(30deg);
+height: 100% !important;
+width: auto !important;
+z-index: -1;
+}
+ion-input{
+width: 70% !important;
+margin-left: auto;
+margin-right: auto;
+text-align:center;
+margin-bottom: 18px !important;
+}
+ion-button{
+width: 50% !important;
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+}
+
+div.wrapper{
+margin-top: 100px;
+}
+div.inputs{
+margin-bottom: 45px !important;
+}
+p{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 10px;
+    color: #FFF9E6;
+    text-align: center;
+}

@@ -40,8 +40,8 @@ export class RepertoirePage implements OnInit {
   ) { 
   
     const date = new Date();
-    const options = { month: 'numeric', day: 'numeric', year:'numeric' };
-    this.currentDate = date.toLocaleDateString('fr-FR', options);
+
+    this.currentDate = date.toLocaleDateString('fr-FR',{ month: 'numeric', day: 'numeric', year:'numeric' });
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
       } else {
@@ -63,11 +63,10 @@ export class RepertoirePage implements OnInit {
   }
 
   addNoteToFirebase() {
-    console.log(this.users[0].pseudo)
     this.afDB.list('Notes/' + this.data.ukey).push({
       unkey: this.userId + Math.floor(Math.random() * Math.floor(10000000000000000)),
       texte: this.myNote,
-      date: new Date().toISOString(),
+      date: new Date().toLocaleDateString('fr-FR',{ month: 'numeric', day: 'numeric', year:'numeric' }),
       titre: this.myTitre,
       repkey: this.data.ukey,
       auteur: this.users[0].pseudo

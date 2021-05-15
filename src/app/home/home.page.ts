@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -25,8 +28,10 @@ export class HomePage {
   passingData;
   nom;
   pseudo;
-
-
+  images=[];
+  filterTerm: string;
+  current;
+  
   constructor(
     public afDB: AngularFireDatabase,
     public afAuth: AngularFireAuth,
@@ -35,8 +40,7 @@ export class HomePage {
   ) 
   {
     const date = new Date();
-    const options = { month: 'numeric', day: 'numeric', year:'numeric' };
-    this.currentDate = date.toLocaleDateString('fr-FR', options);
+    this.currentDate = date.toLocaleDateString("en-GB", { month: 'numeric', day: 'numeric', year:'numeric' });
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
       } else {
@@ -45,19 +49,21 @@ export class HomePage {
         this.getUser();
         this.getReps();
         this.toRep();
+  
       }
     });
   }
   
   ngOnInit() {
     this.getUser();
+
   }
 
   addRepToFirebase() {
     this.afDB.list('Reps/' + this.userId).push({
       ukey: this.userId +  Math.floor(Math.random() * Math.floor(10000000000000000)),
       nom: this.myRep,
-      date: new Date().toISOString(),
+      date: new Date().toLocaleDateString("en-GB", { month: 'numeric', day: 'numeric', year:'numeric' }),
       createur: this.users[0].pseudo
     });
     this.showForm();
@@ -81,6 +87,7 @@ export class HomePage {
         });
       
       });
+      this.reps.reverse();
     });
   }
 
@@ -108,10 +115,7 @@ export class HomePage {
     this.afDB.list('Reps/').remove(rep.key);
   }
   
-  logout() {
-    this.afAuth.signOut();
-    this.route.navigate(['login']);
-  }
+
 
   
  toRep() {
@@ -134,7 +138,21 @@ export class HomePage {
      this.route.navigateByUrl('profil');
      console.log("ok");
    } 
-  
+   
+   search(){
+     this.current = "searching";
+   }
+ 
+   closeSB(){
+     this.filterTerm = '';
+    this.current = 'display';
 
+  }
+
+  testClass(){
+    
+    this.current = 'searching';
+  }
+  
  }
   

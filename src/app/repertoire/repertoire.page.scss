@@ -1,0 +1,82 @@
+ion-back-button{
+    color:antiquewhite;
+    --ionicon-stroke-width: 54px;
+}
+
+ion-button{
+    width: 60px;
+    height: 60px;
+    --ionicon-stroke-width: 54px;
+}
+ion-input, ion-textarea{
+    width: 80% !important;
+    margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+    text-align: center;
+    margin-bottom: 10px !important;
+    
+    }
+.invdiv{
+    width: 700%;
+    height: 700%;
+    background-color:  #d1c18c00;
+    opacity: 0.40;
+    margin-top: -1000px !important;
+    position: absolute;
+  }
+  .bckdiv{
+    width: 700%;
+    height: 700%;
+    background-color:  #d1c18c;
+    opacity: 0.40;
+    margin-top: -1000px !important;
+    
+  }
+  .btnsleftr{
+    position: sticky;
+    left: 20%;
+    
+  }
+  .btnsrightr{
+    position: sticky;
+    left: 60%;
+   
+  }
+  .nvrep{
+    z-index: 10;
+  }
+  ion-icon{
+    z-index: 120;
+  }
+  .titre{
+    height: 50px;
+    width: 75% !important;
+  }
+  .corps{
+    height: 450px; 
+   
+  }
+  .addpbutton{
+    position: sticky;
+    left: 42%;
+    top: 90%;
+    z-index: 9;
+  }
+  .addbutton{
+    position: sticky;
+    left: 8%;
+    top: 90%;
+    z-index: 9;
+  }
+  .searchbutton{
+    position: sticky;
+    left: 76%;
+    top: 90%;
+    z-index: 9;
+  }
+  ion-textarea{
+    --padding-start: 10px;
+    --padding-top: 20px;
+    --padding-end: 10px;
+  }

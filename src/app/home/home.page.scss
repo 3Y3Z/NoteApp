@@ -1,27 +1,70 @@
-#container {
+
+ion-input{
+  width: 80% !important;
+  margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
   text-align: center;
+  margin-bottom: 10px !important;
+  
+  }
+  ion-button{
+    width: 60px;
+    height: 60px;
+    --ionicon-stroke-width: 54px;
+  }
+  ion-item-option{
+    background-color: var(--ion-color-danger-tint);
+  }
+  .btnsleft{
+    position: sticky;
+    left: 8%;
+    top: 90%;
+    z-index: 9;
+  }
+  .btnsright{
+    position: sticky;
+    left: 76%;
+    top: 90%;
+    z-index: 9;
+  }
+  .btnsleftr{
+    position: sticky;
+    left: 20%;
+    
+  }
+  .btnsrightr{
+    position: sticky;
+    left: 60%;
+   
+  }
+  .nvrep{
+    z-index: 10;
+  }
+  ion-icon{
+    z-index: 120;
+  }
+  .bckdiv{
+    width: 700%;
+    height: 700%;
+    background-color:  #d1c18c;
+    opacity: 0.40;
+    margin-top: -1000px !important;
+    
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+  .invdiv{
+    width: 700%;
+    height: 700%;
+    background-color:  #d1c18c00;
+    opacity: 0.40;
+    margin-top: -1000px !important;
+    position: absolute;
+  }
+  div.items{
+    margin-top: -60px;
+  }
+  .nmrep{
+    height: 50px;
+    width: 40%;
+  }

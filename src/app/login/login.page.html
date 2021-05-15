@@ -1,26 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Connection</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
-  <div *ngIf="!connected">
-    <!-- À afficher si l'utilisateur n'est pas connecté -->
-    <ion-item>
-      <ion-label><b>Email:</b></ion-label>
-      <ion-input type="email" [(ngModel)]="dataUser.email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label><b>Mot de passe:</b></ion-label>
-      <ion-input type="password" [(ngModel)]="dataUser.password"></ion-input>
-    </ion-item>
-    <ion-button expand="block" color="primary" (click)="login()">Connexion</ion-button>
-    <ion-button expand="block" color="tertiary" (click)="toSignUp()">Inscription</ion-button>
+  <img src="https://firebasestorage.googleapis.com/v0/b/noteapp-825ee.appspot.com/o/logo.svg?alt=media&token=f11321cb-3596-4720-9902-f09d4a2f32dd">
+  <div class="wrapper" *ngIf="!connected">
+  <div class='inputs'>
+      <ion-input type="email" [(ngModel)]="dataUser.email"  placeholder="Email"></ion-input>
+   
+
+      <ion-input type="password" [(ngModel)]="dataUser.password" placeholder="Mot de passe"></ion-input>
+    </div>
+    <div class='buttons'>
+    <ion-button expand="block"   (click)="login()">Connexion</ion-button>
+   <p>OU</p>
+    <ion-button expand="block" (click)="toSignUp()">Inscription</ion-button>
+  </div>
   </div>
   
-  <div *ngIf="connected">
-    <!-- Si l'utilisateur est connecté -->
-    
-  </div>
 </ion-content>

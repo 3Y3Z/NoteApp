@@ -4,6 +4,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Camera, CameraOptions } from '@ionic-native/Camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { ActionSheetController } from '@ionic/angular';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profil',
   templateUrl: './profil.page.html',
@@ -13,7 +15,8 @@ export class ProfilPage implements OnInit {
 userId: string;
 users= [];
 email;
-
+avatars = [];
+pathtest = 'https://picsum.photos/200'
   croppedImagePath = "";
   isLoading = false;
 
@@ -27,7 +30,10 @@ email;
     public afAuth: AngularFireAuth,
     private camera: Camera,
     public actionSheetController: ActionSheetController,
-    private file: File
+    private file: File,
+    public afSG: AngularFireStorage,
+    private route: Router,
+    
   ) { 
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
@@ -55,6 +61,10 @@ email;
     });
   }
 
+  logout() {
+    this.afAuth.signOut();
+    this.route.navigate(['login']);
+  }
   pickImage(sourceType) {
     const options: CameraOptions = {
       quality: 100,
@@ -70,7 +80,8 @@ email;
       // Handle error
     });
   }
-
+  
+   
   async selectImage() {
     const actionSheet = await this.actionSheetController.create({
       buttons: [{

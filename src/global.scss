@@ -24,3 +24,66 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+:root{
+    background-color: #FFF9E5 !important;
+    --ion-background-color:#FFF9E5 !important;
+  
+}
+ion-title{
+    color: #FFF9E5 !important;
+    font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+}
+ion-toolbar{
+    --background: var(--ion-color-primary) !important;
+    height: 80px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+ion-header{
+ height: 80px;
+ background-color: var(--ion-color-primary)  !important;
+ --ion-background-color:var(--ion-color-primary)  !important;
+}
+ion-icon{
+    color:#FFF9E5 !important;
+}
+ion-button{
+    --background: linear-gradient(180deg, #232321 0%, #151513 100%) !important;
+    --box-shadow: 1.03279e-15px 16.8667px 33.7333px rgba(6, 6, 5, 0.45), inset -4.59016e-16px -7.4963px 7.4963px #131312, inset 4.59016e-16px 7.4963px 7.4963px #252523 !important;
+--border-radius: 30px !important;
+}
+.profil{
+    --background: none !important;
+    --box-shadow: none !important;
+}
+ion-input, ion-textarea{
+background: #FFF9E6 !important;
+box-shadow: inset 0px 0px 12px -6px #1D1D1B !important;
+border-radius: 30px;
+}
+ion-card{ 
+    background: #2A2A27 !important;
+box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.26);
+border-radius: 35px;
+}
+
+
+//FONTS
+@font-face {
+    font-family: 'Rubik';
+    src: url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap');
+}
+:root {
+    --ion-font-family: "Rubik";
+  }
+  :root[mode="ios"] .rubik,
+  :root[mode="md"] .rubik {
+    --ion-font-family: "Rubik" !important;
+    font-family: "Rubik" !important;
+  }

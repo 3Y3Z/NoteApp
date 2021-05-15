@@ -10,8 +10,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!ided">
   <p>{{ data.texte }}</p>
   <p>{{ data.auteur }}</p>
   <p>{{ data.date }}</p>
+</ion-content>
+
+<ion-content *ngIf="ided">
+  <ion-card>
+  <ion-item lines="none">
+    <ion-input [(ngModel)]="myTitre" placeholder="{{ data.texte }}"></ion-input>
+    <ion-input [(ngModel)]="myNote" placeholder="{{ data.texte }}"></ion-input>
+    <p>{{ data.date }}</p>
+    <ion-button (click)="addNoteToFirebase()" shape="round" slot="end">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-card>
 </ion-content>
