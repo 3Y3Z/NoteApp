@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { RepertoirePageRoutingModule } from './repertoire-routing.module';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { RepertoirePage } from './repertoire.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { RepertoirePage } from './repertoire.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RepertoirePageRoutingModule
+    RepertoirePageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [RepertoirePage]
 })

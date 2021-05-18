@@ -83,7 +83,7 @@ signUp(){
   
   this.afDB.list('Pseudos/' + this.pseudo).valueChanges(['child_removed']).subscribe((data) => {
     this.tamere = data;
-    console.log(this.tamere);
+
     if(this.tamere.length == 1){
       this.taken == true;
       this.presentAlertPseudo();

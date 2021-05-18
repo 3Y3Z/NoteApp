@@ -5,7 +5,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { DataService } from '../services/data.service';
 import { PopoverController } from '@ionic/angular';
 import { PopoverPage } from '../popover/popover.page';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-repertoire',
@@ -29,7 +29,9 @@ export class RepertoirePage implements OnInit {
   apiData;
   passingData;
   auteur;
-
+  pseudo;
+  current;
+  filterTerm: string;
   constructor(
     private route: ActivatedRoute,
     private  router: Router,
@@ -58,9 +60,15 @@ export class RepertoirePage implements OnInit {
   ngOnInit() {
     if (this.route.snapshot.data['special']) {
       this.data = this.route.snapshot.data['special'];
-      console.log(this.data);
+ 
     }  
+
   }
+  closeSB(){
+    this.filterTerm = '';
+   this.current = 'display';
+
+ }
 
   addNoteToFirebase() {
     this.afDB.list('Notes/' + this.data.ukey).push({
@@ -72,6 +80,10 @@ export class RepertoirePage implements OnInit {
       auteur: this.users[0].pseudo
     });
     this.showForm();
+  } 
+  
+  search(){
+    this.current = "searching";
   }
 
   showForm() {
@@ -108,6 +120,7 @@ export class RepertoirePage implements OnInit {
           email: action.payload.exportVal().email,
           pseudo: action.payload.exportVal().pseudo,
         });
+        this.pseudo = this.users[0].pseudo;
       });
     });
   }
@@ -127,7 +140,7 @@ export class RepertoirePage implements OnInit {
  toNote() {
     this.afDB.list('Notes/' + this.data.ukey).valueChanges(['child_added', 'child_removed']).subscribe((data) => {
       this.apiData = data;
-      console.log(this.apiData);
+   
     })
   
   }
@@ -138,7 +151,7 @@ export class RepertoirePage implements OnInit {
         this.dataService.setData(id, this.passingData);
         this.router.navigateByUrl('/note/' + id);
       }
-   console.log(this.passingData);
+  
 
         }
 
@@ -155,7 +168,7 @@ export class RepertoirePage implements OnInit {
   }
   toProfil(){
     this.router.navigateByUrl('profil');
-    console.log("ok");
+  
   } 
  }
   

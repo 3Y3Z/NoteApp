@@ -31,7 +31,8 @@ export class HomePage {
   images=[];
   filterTerm: string;
   current;
-  
+  createur;
+  x;
   constructor(
     public afDB: AngularFireDatabase,
     public afAuth: AngularFireAuth,
@@ -48,14 +49,13 @@ export class HomePage {
         this.mail = auth.email;
         this.getUser();
         this.getReps();
-        this.toRep();
-  
+        this.toRep(); 
+        
       }
     });
   }
   
   ngOnInit() {
-    this.getUser();
 
   }
 
@@ -85,7 +85,7 @@ export class HomePage {
           date: action.payload.exportVal().date.substring(0, 10),
           createur: action.payload.exportVal().createur,
         });
-      
+       
       });
       this.reps.reverse();
     });
@@ -100,13 +100,17 @@ export class HomePage {
           key: action.key,
           email: action.payload.exportVal().email,
           pseudo: action.payload.exportVal().pseudo,
+          
         });
+
+       this.pseudo = this.users[0].pseudo;
+      
       });
     });
   }
 
   changeCheckState(ev: any) {
-    console.log('checked: ' + ev.checked);
+   
     this.afDB.object('Reps/' + ev.key + '/checked/').set(ev.checked);
   }
   
@@ -136,7 +140,7 @@ export class HomePage {
       
    toProfil(){
      this.route.navigateByUrl('profil');
-     console.log("ok");
+     
    } 
    
    search(){

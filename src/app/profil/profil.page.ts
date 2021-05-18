@@ -45,7 +45,7 @@ pathtest = 'https://picsum.photos/200'
   }
 
   ngOnInit() {
-    this.getUser();
+    
   }
 
   getUser() {

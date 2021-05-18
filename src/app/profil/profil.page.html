@@ -8,10 +8,15 @@
 </ion-header>
 
 <ion-content *ngFor="let user of users">
-  <p>{{ user.email }}</p>
-  <p>{{ user.pseudo }}</p>
+  <ion-card color="primary">  
+    <ion-item color="primary">
+  <ion-label><h2>{{ user.email }}</h2>
+    <h2>{{ user.pseudo }}</h2></ion-label>
+  </ion-item>
+</ion-card>
   <ion-button expand="block" color="danger" (click)="logout()">Déconnexion</ion-button>
 
 
   
 </ion-content>
+ 

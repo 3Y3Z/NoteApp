@@ -7,6 +7,8 @@ ion-button{
     width: 60px;
     height: 60px;
     --ionicon-stroke-width: 54px;
+   position: fixed;
+   z-index: 12 !important;
 }
 ion-input, ion-textarea{
     width: 80% !important;
@@ -15,8 +17,29 @@ ion-input, ion-textarea{
       margin-top: 20px;
     text-align: center;
     margin-bottom: 10px !important;
-    
+   z-index: 12 !important;
     }
+   div.items{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-top: -60px;
+    align-items: flex-start;
+  }
+  ion-card{
+    width: 40% !important;
+    height: auto !important;
+  }
+  ion-label{
+    height: auto !important;
+    
+  }
+  h1{
+    max-height: 4ch;
+  }
+  p.txt{
+    max-height: 10ch;
+  }
 .invdiv{
     width: 700%;
     height: 700%;
@@ -27,11 +50,13 @@ ion-input, ion-textarea{
   }
   .bckdiv{
     width: 700%;
-    height: 700%;
+    height: 1000%;
     background-color:  #d1c18c;
     opacity: 0.40;
     margin-top: -1000px !important;
-    
+    z-index: 10;
+    position: fixed;
+    top: 0;
   }
   .btnsleftr{
     position: sticky;
@@ -80,3 +105,4 @@ ion-input, ion-textarea{
     --padding-top: 20px;
     --padding-end: 10px;
   }
+  

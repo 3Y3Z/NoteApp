@@ -20,10 +20,10 @@ export class LoginPage implements OnInit {
   ) {
     this.afAuth.authState.subscribe(auth => {
       if (!auth) {
-        console.log('non connecté');
+        
         this.connected = false;
       } else {
-        console.log('connecté: ' + auth.uid);
+
         this.connected = true;
         this.route.navigate(['home']);
       }

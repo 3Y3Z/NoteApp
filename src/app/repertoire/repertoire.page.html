@@ -13,7 +13,10 @@
 
 <ion-content [fullscreen]="true">
   <div class='invdiv' (click)="closeSB()"></div>
-  
+  <div *ngIf="addNote" class="bckdiv"></div>
+  <div *ngIf="current == 'searching'">
+    <ion-searchbar placeholder="Que cherchez vous ?" [(ngModel)]="filterTerm" class="sB"></ion-searchbar> 
+</div>
       
         <ion-input *ngIf="addNote"[(ngModel)]="myTitre" placeholder="Titre" class="titre"></ion-input>
         <ion-textarea *ngIf="addNote" [(ngModel)]="myNote" placeholder="Texte" rows="20" cols="20" class="corps"></ion-textarea>
@@ -29,41 +32,41 @@
       </ion-button>
     </div>
     
+    <ion-button *ngIf="!addNote" (click)="showForm()"  class="addbutton"> 
+      <ion-icon name="add-outline" slot="icon-only" (click)="createPopover()"></ion-icon>
+    </ion-button>
+   
+    <ion-button (click)="createPopover()"  *ngIf="!addNote"class="addpbutton"> 
+    <ion-icon name="person-add-outline" slot="icon-only" (click)="createPopover()"></ion-icon>
+  </ion-button>
   
+  <ion-button (click)="search()"  *ngIf="!addNote" class="searchbutton">
+    <ion-icon name="search-outline" slot="icon-only"></ion-icon>
+  </ion-button>
 
 
-
-  <ion-card *ngFor="let note of notes">
+    <div class="items ion-text-wrap">
+  <ion-card *ngFor="let note of notes | filter:filterTerm" >
     <ion-item-sliding>
-      <ion-item lines="none" *ngIf="note.repkey==data.ukey " (click)="openDetails(note.unkey)">
-        <ion-label>
+      <ion-item lines="none" *ngIf="note.repkey==data.ukey " (click)="openDetails(note.unkey)" color="primary">
+        <ion-label class="ion-text-wrap">
           <h1>{{ note.titre }}</h1>
-          <p>{{ note.texte }}</p>
-          <p>{{ note.auteur }}</p>
-          <p>{{ note.date }}</p>
+          <p class="txt">{{ note.texte }}</p>
+          <p> Par {{ note.auteur }}, le {{ note.date }}.</p>
+        
         </ion-label>
       </ion-item>
-      <ion-item-options>
-        <ion-item-option color="danger" (click)="deleteNote(note)">
+      <ion-item-options color="danger" side="end" *ngIf="note.auteur == pseudo">
+        <ion-item-option color="danger" side="end" (click)="deleteNote(note)">
           <ion-icon name="trash" color="danger" slot="icon-only"></ion-icon>
         </ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
   </ion-card>
-    
+    </div> 
 
 
-  <ion-button *ngIf="!addNote" (click)="showForm()" class="addbutton"> 
-    <ion-icon name="add-outline" slot="icon-only" (click)="createPopover()"></ion-icon>
-  </ion-button>
- 
-  <ion-button (click)="createPopover()" class="addpbutton"> 
-  <ion-icon name="person-add-outline" slot="icon-only" (click)="createPopover()"></ion-icon>
-</ion-button>
 
-<ion-button (click)="search()" class="searchbutton">
-  <ion-icon name="search-outline" slot="icon-only"></ion-icon>
-</ion-button>
 
 <div *ngIf="addNote" class="bckdiv">
 </div>

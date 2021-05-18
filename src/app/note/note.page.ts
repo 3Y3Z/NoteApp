@@ -56,7 +56,7 @@ crAu;
     this.router.navigateByUrl('profil');
   } 
   addNoteToFirebase() {
-    console.log(this.users[0].pseudo)
+    
     this.afDB.list('Notes/' + this.data.ukey).push({
       unkey: this.userId + Math.floor(Math.random() * Math.floor(10000000000000000)),
       texte: this.myNote,
@@ -66,10 +66,7 @@ crAu;
       auteur: this.users[0].pseudo
     });
   }
-  displayUser(){
-    console.log(this.users[0].pseudo)
-
-  }
+  
   getUser() {
     this.afDB.list('Users/' + this.userId).snapshotChanges(['child_added', 'child_removed']).subscribe(actions => {
       this.users = [];

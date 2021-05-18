@@ -1,19 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{data.titre}}</ion-title>
+    <ion-title *ngIf="data.titre">{{data.titre}}</ion-title>
+    <ion-title *ngIf="!data.titre">Sans-titre</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="repertoire" text=""></ion-back-button>
     </ion-buttons>
-    <ion-buttons slot="end">
-      <ion-button (click)="toProfil()"><ion-icon name="person"></ion-icon></ion-button>
-    </ion-buttons>
+   
   </ion-toolbar>
 </ion-header>
 
 <ion-content *ngIf="!ided">
+  <ion-card color="primary" class="ion-text-wrap">
+    <ion-item color="primary">
+      <ion-label class="ion-text-wrap">
   <p>{{ data.texte }}</p>
-  <p>{{ data.auteur }}</p>
-  <p>{{ data.date }}</p>
+</ion-label>
+</ion-item>
+</ion-card>
+<ion-card class="txt ion-text-wrap" color="primary">
+  <ion-item color="primary">
+    <ion-label class="ion-text-wrap">
+<p>{{ data.auteur }}, {{ data.date }}</p>
+</ion-label>
+</ion-item>
+</ion-card>
 </ion-content>
 
 <ion-content *ngIf="ided">

@@ -47,16 +47,14 @@ export class PopoverPage implements OnInit {
   // }
 
 
-  getData(){
-    console.log(this.newUserId)
-  }
+  
     
     getUserByPseudo(){
       this.afDB.list('Pseudos/' + this.newUserPseudo).valueChanges(['child_added', 'child_removed']).subscribe((data) => {
         this.tamere = data;
        this.lacle = this.tamere.find((item) => item.ukey);
        this.newUserId = this.lacle.ukey;
-       console.log(this.newUserId);
+      
        this.afDB.list('Reps/' +  this.newUserId).push({
         ukey: this.ukey,
         nom: this.nom,
