@@ -18,10 +18,10 @@
     <div *ngIf="addRep">
         <ion-input [(ngModel)]="myRep" placeholder="Nom du répertoire" class="nmrep"></ion-input>
         <ion-button (click)="addRepToFirebase()" class="btnsleftr nvrep"  slot="end">
-          <ion-icon  name="add-outline" slot="icon-only"></ion-icon>
+          <ion-icon  name="add-outline"class="confirm" slot="icon-only"></ion-icon>
         </ion-button>
         <ion-button *ngIf="addRep" (click)="showForm()" class="btnsrightr nvrep" >
-          <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+          <ion-icon name="close-outline" class="cancel" slot="icon-only"></ion-icon>
         </ion-button>
       </div>
       

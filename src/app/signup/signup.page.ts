@@ -136,6 +136,7 @@ signUp(){
 
 
  async presentAlert() {
+   if(this.dataNewUser.password.length >= 6){
   const alert = await this.alertController.create({
     cssClass: 'my-custom-class',
     header: 'NON',
@@ -144,6 +145,17 @@ signUp(){
   });
 
   await alert.present();
+}else{
+  const alert = await this.alertController.create({
+    cssClass: 'my-custom-class',
+    header: 'NON',
+    message: 'Le mot de passe doit faire au moins 6 caractères',
+    buttons: ['Je suis infiniment désolé']
+  });
+  await alert.present();
+}
+
+
 }
 async presentAlertPseudo() {
   const alert = await this.alertController.create({

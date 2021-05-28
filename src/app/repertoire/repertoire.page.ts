@@ -108,7 +108,7 @@ export class RepertoirePage implements OnInit {
         });
       
       });
-
+      this.notes.reverse();
     });
   }
   getUser() {

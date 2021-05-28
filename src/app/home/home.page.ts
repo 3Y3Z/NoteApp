@@ -6,8 +6,9 @@ import { DataService } from '../services/data.service';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
-
+import { IonRouterOutlet, Platform } from '@ionic/angular';
+import { Plugins } from '@capacitor/core';
+const { App } = Plugins;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -38,6 +39,8 @@ export class HomePage {
     public afAuth: AngularFireAuth,
     private route: Router,
     private dataService: DataService,
+    private platform: Platform,
+    private routerOutlet: IonRouterOutlet
   ) 
   {
     const date = new Date();
@@ -53,10 +56,15 @@ export class HomePage {
         
       }
     });
+    
   }
-  
+  ionViewDidEnter(){
+    this.platform.backButton.subscribeWithPriority(999, () => {
+      // do on back button click
+     });
+  }
   ngOnInit() {
-
+  
   }
 
   addRepToFirebase() {

@@ -33,6 +33,19 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewWillEnter(){
+    this.afAuth.authState.subscribe(auth => {
+      if (!auth) {
+        
+        this.connected = false;
+      } else {
+
+        this.connected = true;
+        this.route.navigate(['home']);
+      }
+    });
+  }
+
   login() {
     this.afAuth.signInWithEmailAndPassword(this.dataUser.email, this.dataUser.password);
      this.dataUser = {
