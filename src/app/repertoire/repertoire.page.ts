@@ -7,6 +7,7 @@ import { PopoverController } from '@ionic/angular';
 import { PopoverPage } from '../popover/popover.page';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @Component({
   selector: 'app-repertoire',
   templateUrl: './repertoire.page.html',
@@ -38,7 +39,8 @@ export class RepertoirePage implements OnInit {
     public afDB: AngularFireDatabase,
     public afAuth: AngularFireAuth,
     private dataService: DataService,
-    public popover: PopoverController
+    public popover: PopoverController,
+
   ) { 
   
     const date = new Date();
@@ -62,8 +64,9 @@ export class RepertoirePage implements OnInit {
       this.data = this.route.snapshot.data['special'];
  
     }  
-
+   
   }
+  
   closeSB(){
     this.filterTerm = '';
    this.current = 'display';

@@ -7,8 +7,7 @@ import { Action } from 'rxjs/internal/scheduler/Action';
 import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { IonRouterOutlet, Platform } from '@ionic/angular';
-import { Plugins } from '@capacitor/core';
-const { App } = Plugins;
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -34,6 +33,7 @@ export class HomePage {
   current;
   createur;
   x;
+  subscription;
   constructor(
     public afDB: AngularFireDatabase,
     public afAuth: AngularFireAuth,
@@ -59,10 +59,14 @@ export class HomePage {
     
   }
   ionViewDidEnter(){
-    this.platform.backButton.subscribeWithPriority(999, () => {
+    this.subscription = this.platform.backButton.subscribeWithPriority(999, () => {
       // do on back button click
      });
   }
+  ionViewWillLeave() {
+    this.subscription.unsubscribe();
+  }
+  
   ngOnInit() {
   
   }
